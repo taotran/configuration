@@ -1,0 +1,37 @@
+server:
+  port: 9080
+
+cache:
+  cacheKey:
+    prefix: "dev|rmsv2"
+  redis:
+    mode: CLUSTER
+    nodeAddresses:
+      - redis://localhost:7000
+      - redis://localhost:7001
+      - redis://localhost:7002
+      - redis://localhost:7003
+      - redis://localhost:7004
+    scanInterval: 2000
+    slaveConnectionMinimumIdleSize: 5
+    slaveConnectionPoolSize: 5
+    masterConnectionMinimumIdleSize: 5
+    masterConnectionPoolSize: 5
+    idleConnectionTimeout: 10000
+    connectTimeout: 1000
+    responseTimeout: 1000
+    retryAttempts: 3
+    retryInterval: 1000
+    reconnectionTimeout: 3000
+    failedAttempts: 3
+    readMode: MASTER
+    kryoCodec: false
+
+
+grpc:
+  port: 9081
+
+bim:
+  campaignCounter:
+    maxAccountLink: 1
+
